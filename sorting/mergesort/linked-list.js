@@ -1,4 +1,4 @@
-const { Node } = require("../models/linked-list");
+const { Node } = require("../../models/linked-list");
 
 function findMiddle(head) {
   let slow = head;
