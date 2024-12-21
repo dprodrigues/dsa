@@ -1,0 +1,12 @@
+{
+  "name": "dsa",
+  "version": "1.0.0",
+  "description": "Repository with study purposes in ds&a",
+  "main": "binary_search.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
