@@ -27,6 +27,27 @@ class BinaryTree {
     return this._search(this.root, val);
   };
 
+  preorder_traversal = () => {
+    const res = [];
+    this._preorder_traversal(this.root, res);
+
+    return res;
+  };
+
+  inorder_traversal = () => {
+    const res = [];
+    this._inorder_traversal(this.root, res);
+
+    return res;
+  };
+
+  postorder_traversal = () => {
+    const res = [];
+    this._postorder_traversal(this.root, res);
+
+    return res;
+  };
+
   _insert = (node, val) => {
     if (val < node.val) {
       if (!node.left) {
@@ -60,17 +81,53 @@ class BinaryTree {
 
     return this._search(node.left, val);
   };
+
+  _preorder_traversal = (node, res) => {
+    if (!node) {
+      return;
+    }
+
+    res.push(node.val);
+
+    this._preorder_traversal(node.left, res);
+    this._preorder_traversal(node.right, res);
+  };
+
+  _inorder_traversal = (node, res) => {
+    if (!node) {
+      return;
+    }
+
+    this._inorder_traversal(node.left, res);
+    res.push(node.val);
+
+    this._inorder_traversal(node.right, res);
+  };
+
+  _postorder_traversal = (node, res) => {
+    if (!node) {
+      return;
+    }
+
+    this._postorder_traversal(node.left, res);
+    this._postorder_traversal(node.right, res);
+
+    res.push(node.val);
+  };
 }
 
 let tree = new BinaryTree();
 
 tree.insert(5);
 tree.insert(3);
-tree.insert(8);
 tree.insert(1);
-tree.insert(4);
+tree.insert(10);
+tree.insert(15);
 tree.insert(7);
-tree.insert(9);
 
 console.log(tree.search(4));
 console.log(tree.search(6));
+
+console.log(tree.preorder_traversal());
+console.log(tree.inorder_traversal());
+console.log(tree.postorder_traversal());
